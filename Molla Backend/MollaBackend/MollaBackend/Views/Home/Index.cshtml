@@ -1,0 +1,1260 @@
+﻿@model HomeVM
+
+
+@{
+    ViewData["Title"] = "Home Page";
+    
+}
+
+
+<main>
+    <section id="info-message">
+        <div class="all animate__animated">
+            <span>Product added to Wishlist</span>
+        </div>
+    </section>
+
+    <section id="cart-info" class="d-none">
+        <div class="container">
+            <div class="empty-message d-none">
+                <span>No products in the cart.</span>
+            </div>
+            <div class="table">
+                <div class="all-infos">
+                    <!-- <div class="each-info" data-id="1">
+                        <div class="info">
+                            <span>Microsoft – Refurbish Xbox One S 500GB</span>
+                            <p>1 X $279.99</p>
+                        </div>
+                        <div class="photo">
+                            <img src="~/./assets/imgs/Home/featured2.jpeg" alt="">
+                        </div>
+                        <div class="option">
+                            <i class="fa-solid fa-x delete-all"></i>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="bottom">
+                    <div class="total">
+                        <span>Total: </span>
+                        <span class="totalPrice"></span>
+                    </div>
+                    <div class="buttons">
+                        <a class="view" href="~/./cart.html">View Cart</a>
+                        <a class="checkout" href="~/">Checkout<i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productSlider">
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-8">
+                    <div class="slider">
+                        <div class="row justify-content-center">
+                            <div class="chevrons">
+                                <i class="fa-solid fa-chevron-left left"></i>
+                                <i class="fa-solid fa-chevron-right right"></i>
+                            </div>
+                            <div class="img">
+                                <img data-id="1" src="~/./assets/imgs/Home/slider-1.jpeg" class="active-img" alt="">
+                                <img data-id="2" src="~/./assets/imgs/Home/slider-2.jpeg" class="" alt="">
+                            </div>
+                            <div class="contents">
+                                <div class="airpods each-content active-words" data-aos="fade-up" data-id="1">
+                             @foreach(var item in Model.Sliders){
+                                        <span>@item.Title</span>
+                                    <h2>@item.Description</h2>
+                                    <p>Today: </p>
+                                    <h3>$247<sup>.99</sup></h3>
+                                    <button>Click Here<i class="fa-solid fa-arrow-right-long"></i></button>
+                             }
+
+                                </div>
+                     
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="otherproducts">
+                        <div class="each-photo">
+                            <img src="~/./assets/imgs/Home/top-1.jpeg" alt="">
+                            <div class="text">
+                                <span>Top Product</span>
+                                <h5 class="edifier">Edifier Stereo Bluetooth</h5>
+                                <p>Shop Now<i class="fa-solid fa-arrow-right-long"></i></p>
+                            </div>
+                        </div>
+
+                        <div class="each-photo">
+                            <img src="~/./assets/imgs/Home/top-2.jpeg" alt="">
+                            <div class="text">
+                                <span>Clearance</span>
+                                <h5>GoPro - Fusion 360</h5>
+                                <span class="save">Save $70</span>
+                                <p>Shop Now<i class="fa-solid fa-arrow-right-long"></i></p>
+                            </div>
+                        </div>
+
+                        <div class="each-photo">
+                            <img src="~/./assets/imgs/Home/top-3.jpeg" alt="">
+                            <div class="text">
+                                <span>Feature</span>
+                                <h5>Apple Watch 4</h5>
+                                <span class="save">Our Hottest Deals</span>
+                                <p>Shop Now<i class="fa-solid fa-arrow-right-long"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="for-phone-products">
+                        <div class="each-photo">
+                            <img src="~/./assets/imgs/Home/top-1.jpeg" alt="">
+                            <div class="text">
+                                <span>Top Product</span>
+                                <h5 class="edifier">Edifier Stereo Bluetooth</h5>
+                                <p>Shop Now<i class="fa-solid fa-arrow-right-long"></i></p>
+                            </div>
+                        </div>
+
+                        <div class="each-photo">
+                            <img src="~/./assets/imgs/Home/top-2.jpeg" alt="">
+                            <div class="text">
+                                <span>Clearance</span>
+                                <h5>GoPro - Fusion 360</h5>
+                                <span class="save">Save $70</span>
+                                <p>Shop Now<i class="fa-solid fa-arrow-right-long"></i></p>
+                            </div>
+                        </div>
+
+                        <div class="each-photo">
+                            <img src="~/./assets/imgs/Home/top-3.jpeg" alt="">
+                            <div class="text">
+                                <span>Feature</span>
+                                <h5>Apple Watch 4</h5>
+                                <span class="save">Our Hottest Deals</span>
+                                <p>Shop Now<i class="fa-solid fa-arrow-right-long"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products-tab-menu">
+        <div class="products-menu">
+            <div class="for-products-name">
+                <div class="product-names">
+                    <h4 data-id="11" class="for-featured active-tab">Featured</h4>
+                    <h4 data-id="22" class="for-sale">On Sale</h4>
+                    <h4 data-id="33" class="for-rated">Top Rated</h4>
+                </div>
+            </div>
+            <div class="details">
+                <div class="for-featured allcontents" data-id="11">
+                    <div class="container">
+                        <div class="products owl-carousel owl-theme">
+                            @foreach (var item in Model.Features)
+                            {
+                                      <a href="~/./productdetail.html">
+                                <div data-id="1" class="cards">
+                                    <div class="img-part">
+                                        <p class="new">Sale</p>
+                                        <p class="top">Top</p>
+                                        <img src="~/./assets/imgs/Home/@item.Image" class="close-hovered" alt="">
+                                        <img src="~/./assets/imgs/Home/featured1-hover.jpeg" class="open-hovered"
+                                             alt="">
+                                        <i class="fa-regular fa-heart open-hovered heart"></i>
+                                        <div class="options-part">
+                                            <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                            <span>|</span>
+                                            <i class="fa-solid fa-binoculars"></i>
+                                        </div>
+                                    </div>
+                                    <div class="text-part">
+                                        <p class="mini-detail">@item.Title</p>
+                                        <span>@item.Description</span>
+                                        <p class="cost">$214.99</p>
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                        </div>
+                                        <p class="reviews">( 2 Reviews )</p>
+                                    </div>
+                                </div>
+                            </a>
+                            }
+                        
+                   
+                        </div>
+                    </div>
+                </div>
+
+                <div class="for-sale allcontents d-none" data-id="22">
+                    <div class="container">
+                        <div class="products owl-carousel owl-theme">
+                           @foreach (var item in Model.Features)
+                            {
+                                 <a href="~/./productdetail.html">
+                                <div data-id="1" class="cards">
+                                    <div class="img-part">
+                                        <p class="new">Sale</p>
+                                        <p class="top">Top</p>
+                                        <img src="~/./assets/imgs/Home/@item.Image" class="close-hovered" alt="">
+                                        <img src="~/./assets/imgs/Home/sale1-hover.jpeg" class="open-hovered" alt="">
+                                        <i class="fa-regular fa-heart open-hovered heart"></i>
+                                        <div class="options-part">
+                                            <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                            <span>|</span>
+                                            <i class="fa-solid fa-binoculars"></i>
+                                        </div>
+                                    </div>
+                                    <div class="text-part">
+                                        <p class="mini-detail">@item.Title</p>
+                                        <span>@item.Description</span>
+                                        <p class="cost">$214.99</p>
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                        </div>
+                                        <p class="reviews">( 2 Reviews )</p>
+                                    </div>
+                                </div>
+                            </a>
+                            }
+               
+                        </div>
+                    </div>
+                </div>
+
+                <div class="for-rated allcontents d-none" data-id="33">
+                    <div class="container">
+                        <div class="products owl-carousel owl-theme">
+                            @foreach (var item in Model.Features)
+                            {
+                                        <a href="~/./productdetail.html">
+                                <div data-id="10" class="cards">
+                                    <div class="img-part">
+                                        <p class="top d-none" style="top: 25px">Top</p>
+                                        <p class="top d-none" style="top: 25px">Top</p>
+                                        <img src="~/./assets/imgs/Home/@item.Image" class="close-hovered" alt="">
+                                        <img src="~/./assets/imgs/Home/rate1-hover.jpeg" class="open-hovered" alt="">
+                                        <i class="fa-regular fa-heart open-hovered heart"></i>
+                                        <div class="options-part">
+                                            <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                            <span>|</span>
+                                            <i class="fa-solid fa-binoculars"></i>
+                                        </div>
+                                    </div>
+                                    <div class="text-part">
+                                        <p class="mini-detail">@item.Title</p>
+                                        <span>@item.Description</span>
+                                        <p class="cost">$899.99</p>
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                        </div>
+                                        <p class="reviews">( 2 Reviews )</p>
+                                    </div>
+                                </div>
+                            </a>
+                            }
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sponsor">
+        <div class="container">
+            <div class="backImg">
+                <div class="row justify-content-center">
+                    <div class="whiteBoard">
+                        <div class="all">
+                            <div class="left">
+                                <h6>New Deals</h6>
+                                <span>Start Daily at 12pm e.t.</span>
+                            </div>
+                            <div class="cross">
+                                <span>|</span>
+                            </div>
+                            <div class="middle">
+                                <p>
+                                    Get<span style="color: black;">FREE SHIPPING* & 5% rewards</span> on
+                                    every order with Molla Theme rewards program
+                                </p>
+                            </div>
+                            <div class="right">
+                                <button>
+                                    Add to Cart for $50.00/yr<i class="fa-solid fa-arrow-right-long"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="deals-and-outlet">
+        <div class="container">
+            <div class="deals">
+                <div class="row">
+                    <h5 class="top">Deals & Outlet</h5>
+                    <span class="second-top">today’s deal and more</span>
+                    <div class="all-products">
+                        <div class="bigcard">
+                            <div class="text">
+                                <h5>Deal of the Day.</h5>
+                                <span class="limits">Limited quantities.</span>
+                                <p class="detail">Brown faux fur longline coat</p>
+                                <p class="price">$310.00<span class="was-price">Was $190.00</span></p>
+                                <span class="shop-now">Shop Now<i class="fa-solid fa-arrow-right-long"></i></span>
+                                <span class="clock">
+                                    <span class="all-time">
+                                        <span class="each-zeros">00</span>
+                                        <span class="each-time">hours</span>
+                                    </span>
+                                    <p class="dots">:</p>
+                                    <span class="all-time">
+                                        <span class="each-zeros">00</span>
+                                        <span class="each-time">mins</span>
+                                    </span>
+                                    <p class="dots">:</p>
+                                    <span class="all-time">
+                                        <span class="each-zeros">00</span>
+                                        <span class="each-time">secs</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <img src="~/./assets/imgs/Home/deals-backgrounImg.jpeg" alt="">
+                        </div>
+                        <div class="other-cards">
+                            <a href="~/./productdetail.html">
+                                <div data-id="10" class="cards">
+                                    <div class="img-part">
+                                        <p class="top d-none" style="top: 25px">Top</p>
+                                        <p class="top d-none" style="top: 25px">Top</p>
+                                        <img src="~/./assets/imgs/Home/rate1.jpeg" class="close-hovered" alt="">
+                                        <img src="~/./assets/imgs/Home/rate1-hover.jpeg" class="open-hovered" alt="">
+                                        <i class="fa-regular fa-heart open-hovered heart"></i>
+                                        <div class="options-part">
+                                            <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                            <span>|</span>
+                                            <i class="fa-solid fa-binoculars"></i>
+                                        </div>
+                                    </div>
+                                    <div class="text-part">
+                                        <p class="mini-detail">Computers, Tablets</p>
+                                        <span>Apple – 11 Ipad Pro with WI-FI 256 GB</span>
+                                        <p class="cost">$899.99</p>
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                        </div>
+                                        <p class="reviews">( 2 Reviews )</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="~/./productdetail.html">
+                                <div data-id="7" class="cards">
+                                    <div class="img-part">
+                                        <p class="new" style="background-color: #a5c76c;">New</p>
+                                        <p class="top" style="background-color: #ef827b;">Sale</p>
+                                        <img src="~/./assets/imgs/Home/sale4.jpeg" class="close-hovered" alt="">
+                                        <img src="~/./assets/imgs/Home/sale4-hover.jpeg" class="open-hovered" alt="">
+                                        <i class="fa-regular fa-heart open-hovered heart"></i>
+                                        <div class="options-part">
+                                            <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                            <span>|</span>
+                                            <i class="fa-solid fa-binoculars"></i>
+                                        </div>
+                                    </div>
+                                    <div class="text-part">
+                                        <p class="mini-detail">Accessories, Audio</p>
+                                        <span>Home Smart Speaker with Google</span>
+                                        <p class="cost" style="color: red; font-weight: 300;">$129.99</p>
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                            <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                            <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                        </div>
+                                        <p class="reviews">( 2 Reviews )</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <button>Shop More Outlet Deals<i class="fa-solid fa-arrow-right-long"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="brand-carousel">
+        <div class="brands">
+            <div class="container">
+                <div class="allbrands owl-carousel owl-theme">
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <img src="~/./assets/imgs/Home/brand1.png" alt="">
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <img src="~/./assets/imgs/Home/brand2.png" alt="">
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <img src="~/./assets/imgs/Home/brand3.png" alt="">
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <img src="~/./assets/imgs/Home/brand4.png" alt="">
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <img src="~/./assets/imgs/Home/brand5.png" alt="">
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <img src="~/./assets/imgs/Home/brand6.png" alt="">
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <img src="~/./assets/imgs/Home/brand7.png" alt="">
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <img src="~/./assets/imgs/Home/brand8.png" alt="">
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <img src="~/./assets/imgs/Home/brand9.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trending-products">
+        <div class="container">
+            <div class="all">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="name">
+                            <h4>Trending Products</h4>
+                        </div>
+                        <div class="fixed-photo">
+                            <img src="~/./assets/imgs/Home/trending-fixed.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-12 col-sm-12">
+                        <div class="list-type">
+                            <h6 data-id="100" class="for-all active-trend">All</h6>
+                            <h6 data-id="200" class="for-accessories">Accessories</h6>
+                            <h6 data-id="300" class="for-cameras">Cameras & Camcorders</h6>
+                            <h6 data-id="400" class="for-computers">Computers & Tablets</h6>
+                            <h6 data-id="500" class="for-entertainment">Entertainment</h6>
+                        </div>
+                        <div class="allcards">
+                            <div class="for-all allcontents" data-id="100">
+                                <div class="container">
+                                    <div class="trending-products owl-carousel owl-theme">
+                                       @foreach (var item in Model.Sliders)
+                                        {
+                                            <a href="~/./productdetail.html">
+                                                <div data-id="1" class="cards">
+                                                    <div class="img-part">
+                                                        <p class="new">Sale</p>
+                                                        <p class="top">Top</p>
+                                                        <img src="~/./assets/imgs/Home/@item.Image"
+                                                         class="close-hovered" alt="">
+                                                        <img src="~/./assets/imgs/Home/featured1-hover.jpeg"
+                                                         class="open-hovered" alt="">
+                                                        <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                        <div class="options-part">
+                                                            <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                            <span>|</span>
+                                                            <i class="fa-solid fa-binoculars"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-part">
+                                                        <p class="mini-detail">@item.Title</p>
+                                                        <span>
+                                                          @item.Description
+                                                        </span>
+                                                        <p class="cost">$214.99</p>
+                                                        <div class="stars">
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                                        </div>
+                                                        <p class="reviews">( 2 Reviews )</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        }
+                                  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="for-accessories allcontents d-none" data-id="200">
+                                <div class="container">
+                                    <div class="trending-products owl-carousel owl-theme">
+                                        @foreach (var item in Model.Sliders)
+                                        {
+                                            <a href="~/./productdetail.html">
+                                                <div data-id="1" class="cards">
+                                                    <div class="img-part">
+                                                        <p class="new">Sale</p>
+                                                        <p class="top">Top</p>
+                                                        <img src="~/./assets/imgs/Home/@item.Image"
+                                                         class="close-hovered" alt="">
+                                                        <img src="~/./assets/imgs/Home/featured1-hover.jpeg"
+                                                         class="open-hovered" alt="">
+                                                        <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                        <div class="options-part">
+                                                            <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                            <span>|</span>
+                                                            <i class="fa-solid fa-binoculars"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-part">
+                                                        <p class="mini-detail">@item.Title</p>
+                                                        <span>
+                                                            @item.Description
+                                                        </span>
+                                                        <p class="cost">$214.99</p>
+                                                        <div class="stars">
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                                        </div>
+                                                        <p class="reviews">( 2 Reviews )</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="for-cameras allcontents d-none" data-id="300">
+                                <div class="container">
+                                    <div class="trending-products owl-carousel owl-theme">
+                                        @foreach (var item in Model.Sliders)
+                                        {
+                                            <a href="~/./productdetail.html">
+                                                <div data-id="1" class="cards">
+                                                    <div class="img-part">
+                                                        <p class="new">Sale</p>
+                                                        <p class="top">Top</p>
+                                                        <img src="~/./assets/imgs/Home/@item.Image"
+                                                         class="close-hovered" alt="">
+                                                        <img src="~/./assets/imgs/Home/featured1-hover.jpeg"
+                                                         class="open-hovered" alt="">
+                                                        <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                        <div class="options-part">
+                                                            <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                            <span>|</span>
+                                                            <i class="fa-solid fa-binoculars"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-part">
+                                                        <p class="mini-detail">@item.Title</p>
+                                                        <span>
+                                                            @item.Description
+                                                        </span>
+                                                        <p class="cost">$214.99</p>
+                                                        <div class="stars">
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                                        </div>
+                                                        <p class="reviews">( 2 Reviews )</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="for-computers allcontents d-none" data-id="400">
+                                <div class="container">
+                                    <div class="trending-products owl-carousel owl-theme">
+                                        <a href="~/./productdetail.html">
+                                            <div data-id="5" class="cards">
+                                                <div class="img-part">
+                                                    <p class="top d-none" style="top: 25px">Top</p>
+                                                    <p class="top" style="top: 25px">Top</p>
+                                                    <img src="~/./assets/imgs/Home/featured5.jpeg"
+                                                         class="close-hovered" alt="">
+                                                    <img src="~/./assets/imgs/Home/featured5-hover.jpeg"
+                                                         class="open-hovered" alt="">
+                                                    <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                    <div class="options-part">
+                                                        <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                        <span>|</span>
+                                                        <i class="fa-solid fa-binoculars"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="text-part">
+                                                    <p class="mini-detail">Tablets, Entertainment,...</p>
+                                                    <span>Google – Pixel 6.2-Inch 3 XL 128GB</span>
+                                                    <p class="cost">$40.00</p>
+                                                    <div class="stars">
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                    </div>
+                                                    <p class="reviews">( 2 Reviews )</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="for-entertainment allcontents d-none" data-id="500">
+                                <div class="container">
+                                    <div class="trending-products owl-carousel owl-theme">
+                                        <a href="~/./productdetail.html">
+                                            <div data-id="2" class="cards">
+                                                <div class="img-part">
+                                                    <p class="new" style="background-color: #a5c76c;">New</p>
+                                                    <p class="top">Top</p>
+                                                    <img src="~/./assets/imgs/Home/featured2.jpeg"
+                                                         class="close-hovered" alt="">
+                                                    <img src="~/./assets/imgs/Home/featured2-hover.jpeg"
+                                                         class="open-hovered" alt="">
+                                                    <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                    <div class="options-part">
+                                                        <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                        <span>|</span>
+                                                        <i class="fa-solid fa-binoculars"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="text-part">
+                                                    <p class="mini-detail">Accessories, Video Games</p>
+                                                    <span>Microsoft - Refurbish Xbox One S 500GB</span>
+                                                    <p class="cost">$279.99</p>
+                                                    <div class="stars">
+                                                        <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                                    </div>
+                                                    <p class="reviews">( 2 Reviews )</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="~/./productdetail.html">
+                                            <div data-id="5" class="cards">
+                                                <div class="img-part">
+                                                    <p class="top d-none" style="top: 25px">Top</p>
+                                                    <p class="top" style="top: 25px">Top</p>
+                                                    <img src="~/./assets/imgs/Home/featured5.jpeg"
+                                                         class="close-hovered" alt="">
+                                                    <img src="~/./assets/imgs/Home/featured5-hover.jpeg"
+                                                         class="open-hovered" alt="">
+                                                    <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                    <div class="options-part">
+                                                        <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                        <span>|</span>
+                                                        <i class="fa-solid fa-binoculars"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="text-part">
+                                                    <p class="mini-detail">Tablets, Entertainment,...</p>
+                                                    <span>Google – Pixel 6.2-Inch 3 XL 128GB</span>
+                                                    <p class="cost">$40.00</p>
+                                                    <div class="stars">
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                    </div>
+                                                    <p class="reviews">( 2 Reviews )</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="~/./productdetail.html">
+                                            <div data-id="9" class="cards">
+                                                <div class="img-part">
+                                                    <p class="new">Sale</p>
+                                                    <p class="top">Top</p>
+                                                    <img src="~/./assets/imgs/Home/sale6.jpeg" class="close-hovered"
+                                                         alt="">
+                                                    <img src="~/./assets/imgs/Home/sale6-hover.jpeg"
+                                                         class="open-hovered" alt="">
+                                                    <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                    <div class="options-part">
+                                                        <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                        <span>|</span>
+                                                        <i class="fa-solid fa-binoculars"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="text-part">
+                                                    <p class="mini-detail">Entertainment, Accessories</p>
+                                                    <span>Apple Watch Series 4 Gold Aluminum Case</span>
+                                                    <p class="cost" style="color: red; font-weight: 300;">
+                                                        $300.99
+                                                    </p>
+                                                    <div class="stars">
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                        <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                    </div>
+                                                    <p class="reviews">( 2 Reviews )</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="top-selling-products">
+        <div class="all-of-them">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="heads">
+                            <div class="name">
+                                <h4>Top Selling Products</h4>
+                            </div>
+                            <div class="list-type">
+                                <h6 data-id="111" class="for-all active-list">All</h6>
+                                <h6 data-id="222" class="for-accessories">Accessories</h6>
+                                <h6 data-id="333" class="for-cameras">Cameras & Camcorders</h6>
+                                <h6 data-id="444" class="for-computers">Computers & Tablets</h6>
+                                <h6 data-id="555" class="for-entertainment">Entertainment</h6>
+                            </div>
+                        </div>
+                        <div class="products-list">
+                            <div class="row">
+                                <div class="allcards">
+                                    <div class="for-all allcontents" data-id="111">
+                                        <div class="container">
+                                            <div class="top-products owl-carousel owl-theme">
+                                                @foreach (var item in Model.Features)
+                                                {
+                                                    <a href="~/./productdetail.html">
+                                                        <div data-id="1" class="cards">
+                                                            <div class="img-part">
+                                                                <p class="new">Sale</p>
+                                                                <p class="top">Top</p>
+                                                                <img src="~/./assets/imgs/Home/@item.Image" class="close-hovered" alt="">
+                                                                <img src="~/./assets/imgs/Home/featured1-hover.jpeg" class="open-hovered"
+                                                                 alt="">
+                                                                <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                                <div class="options-part">
+                                                                    <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                                    <span>|</span>
+                                                                    <i class="fa-solid fa-binoculars"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-part">
+                                                                <p class="mini-detail">@item.Title</p>
+                                                                <span>@item.Description</span>
+                                                                <p class="cost">$214.99</p>
+                                                                <div class="stars">
+                                                                    <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                                    <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                                    <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                                    <i class="fa-solid fa-star" style="color: #fcb941;"></i>
+                                                                    <i class="fa-solid fa-star" style="color: #cccccc;"></i>
+                                                                </div>
+                                                                <p class="reviews">( 2 Reviews )</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="for-accessories allcontents d-none" data-id="222">
+                                        <div class="container">
+                                            <div class="top-products owl-carousel owl-theme">
+                                                <a href="~/./productdetail.html">
+                                                    <div data-id="1" class="cards">
+                                                        <div class="img-part">
+                                                            <p class="new">Sale</p>
+                                                            <p class="top">Top</p>
+                                                            <img src="~/./assets/imgs/Home/featured1.jpeg"
+                                                                 class="close-hovered" alt="">
+                                                            <img src="~/./assets/imgs/Home/featured1-hover.jpeg"
+                                                                 class="open-hovered" alt="">
+                                                            <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                            <div class="options-part">
+                                                                <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                                <span>|</span>
+                                                                <i class="fa-solid fa-binoculars"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-part">
+                                                            <p class="mini-detail">Accessories, Smartwatches</p>
+                                                            <span>
+                                                                Apple – Watch Series 3 with White Sport
+                                                                Band
+                                                            </span>
+                                                            <p class="cost">$214.99</p>
+                                                            <div class="stars">
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                            </div>
+                                                            <p class="reviews">( 2 Reviews )</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="~/./productdetail.html">
+                                                    <div data-id="2" class="cards">
+                                                        <div class="img-part">
+                                                            <p class="new" style="background-color: #a5c76c;">
+                                                                New
+                                                            </p>
+                                                            <p class="top">Top</p>
+                                                            <img src="~/./assets/imgs/Home/featured2.jpeg"
+                                                                 class="close-hovered" alt="">
+                                                            <img src="~/./assets/imgs/Home/featured2-hover.jpeg"
+                                                                 class="open-hovered" alt="">
+                                                            <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                            <div class="options-part">
+                                                                <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                                <span>|</span>
+                                                                <i class="fa-solid fa-binoculars"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-part">
+                                                            <p class="mini-detail">Accessories, Video Games</p>
+                                                            <span>Microsoft - Refurbish Xbox One S 500GB</span>
+                                                            <p class="cost">$279.99</p>
+                                                            <div class="stars">
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                            </div>
+                                                            <p class="reviews">( 2 Reviews )</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="~/./productdetail.html">
+                                                    <div data-id="9" class="cards">
+                                                        <div class="img-part">
+                                                            <p class="new">Sale</p>
+                                                            <p class="top">Top</p>
+                                                            <img src="~/./assets/imgs/Home/sale6.jpeg"
+                                                                 class="close-hovered" alt="">
+                                                            <img src="~/./assets/imgs/Home/sale6-hover.jpeg"
+                                                                 class="open-hovered" alt="">
+                                                            <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                            <div class="options-part">
+                                                                <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                                <span>|</span>
+                                                                <i class="fa-solid fa-binoculars"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-part">
+                                                            <p class="mini-detail">Entertainment, Accessories</p>
+                                                            <span>Apple Watch Series 4 Gold Aluminum Case</span>
+                                                            <p class="cost" style="color: red; font-weight: 300;">
+                                                                $300.99
+                                                            </p>
+                                                            <div class="stars">
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                            </div>
+                                                            <p class="reviews">( 2 Reviews )</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="for-cameras allcontents d-none" data-id="333">
+                                        <div class="container">
+                                            <div class="top-products owl-carousel owl-theme">
+                                                <a href="~/./productdetail.html">
+                                                    <div data-id="3" class="cards">
+                                                        <div class="img-part">
+                                                            <p class="top d-none" style="top: 25px">Top</p>
+                                                            <p class="top" style="top: 25px">Top</p>
+                                                            <img src="~/./assets/imgs/Home/featured3.jpeg"
+                                                                 class="close-hovered" alt="">
+                                                            <img src="~/./assets/imgs/Home/featured3-hover.jpeg"
+                                                                 class="open-hovered" alt="">
+                                                            <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                            <div class="options-part">
+                                                                <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                                <span>|</span>
+                                                                <i class="fa-solid fa-binoculars"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-part">
+                                                            <p class="mini-detail">Camcorders, Cameras</p>
+                                                            <span>Sony – Alpha a5100 Mirrorless Camera</span>
+                                                            <p class="cost">$499.99</p>
+                                                            <div class="stars">
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                            </div>
+                                                            <p class="reviews">( 2 Reviews )</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="~/./productdetail.html">
+                                                    <div data-id="4" class="cards">
+                                                        <div class="img-part">
+                                                            <p class="new" style="background-color: #a5c76c;">
+                                                                New
+                                                            </p>
+                                                            <p class="top">Top</p>
+                                                            <img src="~/./assets/imgs/Home/featured4.jpeg"
+                                                                 class="close-hovered" alt="">
+                                                            <img src="~/./assets/imgs/Home/featured4-hover.jpeg"
+                                                                 class="open-hovered" alt="">
+                                                            <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                            <div class="options-part">
+                                                                <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                                <span>|</span>
+                                                                <i class="fa-solid fa-binoculars"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-part">
+                                                            <p class="mini-detail">Cameras, Camcorders</p>
+                                                            <span>Canon – EOS 5D Mark IV DSLR Camera</span>
+                                                            <p class="cost" style="color: red; font-weight: 200;">
+                                                                $359.99
+                                                            </p>
+                                                            <div class="stars">
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                            </div>
+                                                            <p class="reviews">( 2 Reviews )</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="for-computers allcontents d-none" data-id="444">
+                                        <div class="container">
+                                            <div class="top-products owl-carousel owl-theme">
+                                                <a href="~/./productdetail.html">
+                                                    <div data-id="5" class="cards">
+                                                        <div class="img-part">
+                                                            <p class="top d-none" style="top: 25px">Top</p>
+                                                            <p class="top" style="top: 25px">Top</p>
+                                                            <img src="~/./assets/imgs/Home/featured5.jpeg"
+                                                                 class="close-hovered" alt="">
+                                                            <img src="~/./assets/imgs/Home/featured5-hover.jpeg"
+                                                                 class="open-hovered" alt="">
+                                                            <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                            <div class="options-part">
+                                                                <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                                <span>|</span>
+                                                                <i class="fa-solid fa-binoculars"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-part">
+                                                            <p class="mini-detail">Tablets, Entertainment,...</p>
+                                                            <span>Google – Pixel 6.2-Inch 3 XL 128GB</span>
+                                                            <p class="cost">$40.00</p>
+                                                            <div class="stars">
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                            </div>
+                                                            <p class="reviews">( 2 Reviews )</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="for-entertainment allcontents d-none" data-id="555">
+                                        <div class="container">
+                                            <div class="top-products owl-carousel owl-theme">
+                                                <a href="~/./productdetail.html">
+                                                    <div data-id="2" class="cards">
+                                                        <div class="img-part">
+                                                            <p class="new" style="background-color: #a5c76c;">
+                                                                New
+                                                            </p>
+                                                            <p class="top">Top</p>
+                                                            <img src="~/./assets/imgs/Home/featured2.jpeg"
+                                                                 class="close-hovered" alt="">
+                                                            <img src="~/./assets/imgs/Home/featured2-hover.jpeg"
+                                                                 class="open-hovered" alt="">
+                                                            <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                            <div class="options-part">
+                                                                <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                                <span>|</span>
+                                                                <i class="fa-solid fa-binoculars"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-part">
+                                                            <p class="mini-detail">Accessories, Video Games</p>
+                                                            <span>Microsoft - Refurbish Xbox One S 500GB</span>
+                                                            <p class="cost">$279.99</p>
+                                                            <div class="stars">
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #cccccc;"></i>
+                                                            </div>
+                                                            <p class="reviews">( 2 Reviews )</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="~/./productdetail.html">
+                                                    <div data-id="5" class="cards">
+                                                        <div class="img-part">
+                                                            <p class="top d-none" style="top: 25px">Top</p>
+                                                            <p class="top" style="top: 25px">Top</p>
+                                                            <img src="~/./assets/imgs/Home/featured5.jpeg"
+                                                                 class="close-hovered" alt="">
+                                                            <img src="~/./assets/imgs/Home/featured5-hover.jpeg"
+                                                                 class="open-hovered" alt="">
+                                                            <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                            <div class="options-part">
+                                                                <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                                <span>|</span>
+                                                                <i class="fa-solid fa-binoculars"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-part">
+                                                            <p class="mini-detail">Tablets, Entertainment,...</p>
+                                                            <span>Google – Pixel 6.2-Inch 3 XL 128GB</span>
+                                                            <p class="cost">$40.00</p>
+                                                            <div class="stars">
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                            </div>
+                                                            <p class="reviews">( 2 Reviews )</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="~/./productdetail.html">
+                                                    <div data-id="9" class="cards">
+                                                        <div class="img-part">
+                                                            <p class="new">Sale</p>
+                                                            <p class="top">Top</p>
+                                                            <img src="~/./assets/imgs/Home/sale6.jpeg"
+                                                                 class="close-hovered" alt="">
+                                                            <img src="~/./assets/imgs/Home/sale6-hover.jpeg"
+                                                                 class="open-hovered" alt="">
+                                                            <i class="fa-regular fa-heart open-hovered heart"></i>
+                                                            <div class="options-part">
+                                                                <i class="fa-solid fa-cart-arrow-down addToCart"></i>
+                                                                <span>|</span>
+                                                                <i class="fa-solid fa-binoculars"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-part">
+                                                            <p class="mini-detail">Entertainment, Accessories</p>
+                                                            <span>Apple Watch Series 4 Gold Aluminum Case</span>
+                                                            <p class="cost" style="color: red; font-weight: 300;">
+                                                                $300.99
+                                                            </p>
+                                                            <div class="stars">
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                                <i class="fa-solid fa-star"
+                                                                   style="color: #fcb941;"></i>
+                                                            </div>
+                                                            <p class="reviews">( 2 Reviews )</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="icons">
+        <div class="container">
+            <div class="all">
+                <div class="content" data-aos="fade-right">
+                    <i class="fa-solid fa-rocket"></i>
+                    <div class="words">
+                        <h3>Free Shipping</h3>
+                        <p>orders $50 or more</p>
+                    </div>
+                </div>
+                <div class="content" data-aos="fade-right">
+                    <i class="fa-solid fa-arrow-rotate-left"></i>
+                    <div class="words">
+                        <h3>Free Returns</h3>
+                        <p>within 30 days</p>
+                    </div>
+                </div>
+                <div class="content">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <div class="words">
+                        <h3>Get 20% Off 1 Item</h3>
+                        <p>When you sign up</p>
+                    </div>
+                </div>
+                <div class="content">
+                    <i class="fa-regular fa-life-ring"></i>
+                    <div class="words">
+                        <h3>We Support</h3>
+                        <p>24/7 amazing services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="socials">
+        <div class="container">
+            <div class="backImg">
+                <div class="row justify-content-center">
+                    <div class="whiteBoard">
+                        <div class="all">
+                            <div class="col-5">
+                                <div class="left">
+                                    <h3>Shop Social</h3>
+                                    <p>
+                                        Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit
+                                        amet orci.
+                                    </p>
+                                    <div class="social-media">
+                                        <i class="fa-brands fa-facebook-f facebook"></i>
+                                        <i class="fa-brands fa-twitter twitter"></i>
+                                        <i class="fa-brands fa-instagram instagram"></i>
+                                        <i class="fa-brands fa-youtube youtube"></i>
+                                        <i class="fa-brands fa-pinterest pinterest"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="cross">
+                                    <span class="cross-span">|</span>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="right" data-aos="fade-right">
+                                    <h3>Get the Latest Deals</h3>
+                                    <p>and <br> receive<span> $20 coupon </span>for first shopping</p>
+                                    <div class="input-part">
+                                        <input type="text" placeholder="Enter your Email Address">
+                                        <i class="fa-solid fa-arrow-right-long"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="scrollBtn">
+        <div class="btn ">
+            <i class="fa-solid fa-arrow-up-long"></i>
+        </div>
+    </section>
+</main>
+
